@@ -21,7 +21,7 @@ public class Geometry {
 	
 	@Override
 	public String toString() {
-		String val = "Tetragon "+name;
+		String val = "___Geometry "+name+"___";
 		val += "\nP1: "+p1;
 		val += "\nP2: "+p2;
 		val += "\nP3: "+p3;
