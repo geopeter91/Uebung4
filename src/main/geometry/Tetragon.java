@@ -12,7 +12,7 @@ public class Tetragon extends Geometry{
 		double c = p3.calcDistance(p4);
 		double d = p4.calcDistance(p1);
 		
-		System.out.println("Distanz a: "+d);
+		System.out.println("Distanz a: "+a);
 		
 		return a+b+c+d;
 	}

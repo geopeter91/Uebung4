@@ -32,8 +32,8 @@ public class Point {
 		this.x = x;
 	}
 	public double calcDistance(Point b) {
-		double x2 = (Math.abs(b.getX()) - Math.abs(x))^2;
-		double y2 = (Math.abs(b.getY()) - Math.abs(y))^2;
+		double x2 = (b.getX() - x)*(b.getX() - x);
+		double y2 = (b.getY() - y)*(b.getY() - y);
 		return Math.sqrt(x2 + y2);
 	}
 	
