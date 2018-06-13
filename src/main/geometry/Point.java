@@ -12,13 +12,7 @@ public class Point {
 		this.x = x;
 		this.y = y;
 	}
-	
-	public int getY() {
-		return y;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
+		
 	public String getName() {
 		return name;
 	}
@@ -31,9 +25,16 @@ public class Point {
 	public void setX(int x) {
 		this.x = x;
 	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	public double calcDistance(Point b) {
-		double x2 = (b.getX() - x)*(b.getX() - x);
-		double y2 = (b.getY() - y)*(b.getY() - y);
+		double x2 = (b.getX() - this.x)*(b.getX() - this.x);
+		double y2 = (b.getY() - this.y)*(b.getY() - this.y);
 		return Math.sqrt(x2 + y2);
 	}
 	
@@ -41,8 +42,5 @@ public class Point {
 	public String toString() {
 		return "Point "+name+"("+x+","+y+")";
 	}
-	
-	
-	
-	
+		
 }

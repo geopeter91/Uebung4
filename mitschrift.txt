@@ -2,3 +2,4 @@ inside methode
 	liegt punkt in Rechteck
 	Punkt auf Linie liegt nicht im Objekt
 	
+static frage mehrfachverwendung vs. thread
