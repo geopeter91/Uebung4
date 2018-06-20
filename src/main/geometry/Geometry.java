@@ -20,7 +20,6 @@ public class Geometry {
 	}
 	
 	
-	
 	public String getName() {
 		return name;
 	}
@@ -52,6 +51,28 @@ public class Geometry {
 		this.p4 = p4;
 	}
 
+	public double determineAngel(Point a, Point b, Point c) {
+		Point ab = determineVector(a, b);
+		Point bc = determineVector(b, c);
+				
+		double skalar = (ab.getX() * bc.getX() + ab.getY() * bc.getY());
+		double strecke_AB = a.calcDistance(b);
+		double strecke_BC = b.calcDistance(c);
+		
+		double phi = skalar / (Math.sqrt(strecke_AB) * strecke_BC);
+		
+		double angel = Math.acos(Math.PI * (phi/180));
+		double angelToDegree = Math.toDegrees(angel);
+		
+		return angelToDegree;
+	}
+	
+	public Point determineVector(Point a, Point b) {
+		int x = a.getX() - b.getX();
+		int y = a.getY() - b.getY();
+		return new Point("vec "+a+" "+b, x, y);
+	}
+	
 	@Override
 	public String toString() {
 		String val = "___Geometry "+name+"___";

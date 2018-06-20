@@ -17,6 +17,19 @@ public class Tetragon extends Geometry{
 		return a+b+c+d;
 	}
 	
+	public boolean isValid() {
+		boolean valid = false;
+		
+		double angelB = determineAngel(p1, p2, p3);
+		double angelC = determineAngel(p2, p3, p4);
+		double angelD = determineAngel(p3, p4, p1);
+		double angelA = determineAngel(p4, p1, p2);
+		
+		double angelSum = angelA + angelB + angelC + angelD;
+		
+		return angelSum >= 359 || angelSum <= 361;
+	}
+	
 	@Override
 	public String toString() {
 		String val = super.toString();
