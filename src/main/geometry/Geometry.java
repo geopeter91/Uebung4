@@ -51,19 +51,36 @@ public class Geometry {
 		this.p4 = p4;
 	}
 
-	public double determineAngel(Point a, Point b, Point c) {
-		Point ab = determineVector(a, b);
-		Point bc = determineVector(b, c);
-				
-		double skalar = (ab.getX() * bc.getX() + ab.getY() * bc.getY());
-		double strecke_AB = a.calcDistance(b);
-		double strecke_BC = b.calcDistance(c);
+	public double determineAngle(Point a, Point b, Point c) {
+//		 Point ab = determineVector(a, b);
+//		 Point bc = determineVector(b, c);
+		double sa = b.calcDistance(c);
+		double sb = a.calcDistance(c);		
+		double sc = a.calcDistance(b);
 		
-		double phi = skalar / (Math.sqrt(strecke_AB) * strecke_BC);
+		double gamma = Math.acos((sa*sa + sb*sb - sc*sc) / (2*sa*sb)); //|acos
 		
-		double angel = Math.acos(Math.PI * (phi/180));
-		double angelToDegree = Math.toDegrees(angel);
-		
+		double grad = radToGrad(gamma);
+		return grad;
+	}
+	
+//	public double determineAngle(Point a, Point b, Point c) {
+//		 Point ab = determineVector(a, b);
+//		 Point bc = determineVector(b, c);
+//		
+//		 double skalar = (ab.getX() * bc.getX() + ab.getY() * bc.getY());
+//		 double strecke_AB = a.calcDistance(b);
+//		 double strecke_BC = b.calcDistance(c);
+//		
+//		 double phi = skalar / (Math.sqrt(strecke_AB) * strecke_BC);
+//		
+//		 double angelToDegree = radToGrad(phi);
+//		
+//		return angelToDegree;
+//	}
+
+	protected double radToGrad(double phi) {
+		double angelToDegree = Math.toDegrees(phi);
 		return angelToDegree;
 	}
 	
