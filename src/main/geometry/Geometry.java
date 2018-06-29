@@ -2,11 +2,11 @@ package main.geometry;
 
 public class Geometry {
 	
-	protected String name = "";
-	protected Point p1 = null;
-	protected Point p2 = null;
-	protected Point p3 = null;
-	protected Point p4 = null;
+	private String name = "";
+	private Point p1 = null;
+	private Point p2 = null;
+	private Point p3 = null;
+	private Point p4 = null;
 	
 	public Geometry(String name) {
 		this.name = name;		
@@ -52,8 +52,6 @@ public class Geometry {
 	}
 
 	public double determineAngle(Point a, Point b, Point c) {
-//		 Point ab = determineVector(a, b);
-//		 Point bc = determineVector(b, c);
 		double sa = b.calcDistance(c);
 		double sb = a.calcDistance(c);		
 		double sc = a.calcDistance(b);
@@ -63,21 +61,6 @@ public class Geometry {
 		double grad = radToGrad(gamma);
 		return grad;
 	}
-	
-//	public double determineAngle(Point a, Point b, Point c) {
-//		 Point ab = determineVector(a, b);
-//		 Point bc = determineVector(b, c);
-//		
-//		 double skalar = (ab.getX() * bc.getX() + ab.getY() * bc.getY());
-//		 double strecke_AB = a.calcDistance(b);
-//		 double strecke_BC = b.calcDistance(c);
-//		
-//		 double phi = skalar / (Math.sqrt(strecke_AB) * strecke_BC);
-//		
-//		 double angelToDegree = radToGrad(phi);
-//		
-//		return angelToDegree;
-//	}
 
 	protected double radToGrad(double phi) {
 		double angelToDegree = Math.toDegrees(phi);
@@ -92,7 +75,7 @@ public class Geometry {
 	
 	@Override
 	public String toString() {
-		String val = "___Geometry "+name+"___";
+		String val = "___"+name+"___";
 		val += "\nP1: "+p1;
 		val += "\nP2: "+p2;
 		val += "\nP3: "+p3;

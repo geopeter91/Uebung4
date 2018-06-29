@@ -11,29 +11,24 @@ public class Tetragon extends Geometry{
 		super(name);
 		setPoints(p1, p2, p3, p4);
 	}
-
+	
 	public double calcUmfang() {
-		double a = p1.calcDistance(p2);
-		double b = p2.calcDistance(p3);
-		double c = p3.calcDistance(p4);
-		double d = p4.calcDistance(p1);
-		
-		System.out.println("Distanz a: "+a);
+		double a = getP1().calcDistance(getP2());
+		double b = getP2().calcDistance(getP3());
+		double c = getP3().calcDistance(getP4());
+		double d = getP4().calcDistance(getP1());
 		
 		return a+b+c+d;
 	}
 	
 	public boolean isValid() {
-		boolean valid = false;
-		
-		double angleB = determineAngle(p1, p2, p3);
-		double angleC = determineAngle(p2, p3, p4);
-		double angleD = determineAngle(p3, p4, p1);
-		double angleA = determineAngle(p4, p1, p2);
-		
+		double angleA = determineAngle(getP4(), getP2(), getP1());
+		double angleB = determineAngle(getP1(), getP3(), getP2());
+		double angleC = determineAngle(getP2(), getP4(), getP3());
+		double angleD = determineAngle(getP1(), getP3(), getP4());
+				
 		double angelSum = angleA + angleB + angleC + angleD;
-		
-		return angelSum >= 359 || angelSum <= 361;
+		return angelSum >= 359 && angelSum <= 361;
 	}
 	
 	@Override
