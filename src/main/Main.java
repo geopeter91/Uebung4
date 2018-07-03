@@ -1,18 +1,19 @@
 package main;
 
+import java.applet.Applet;
+import java.awt.Graphics;
+
 import main.geometry.Point;
 import main.geometry.Rectangle;
 import main.geometry.Square;
 import main.geometry.Tetragon;
-import main.model.U4Model;
-import main.windowComposer.U4Window;
+import main.model.GeometryModel;
+import main.windowComposer.GeometryWindow;
 
-public class Main {
+public class Main extends Applet{
 	
-	
-	private U4Model model = new U4Model();
-	private U4Window window;
-	
+	private GeometryModel model = new GeometryModel();
+	private GeometryWindow window;
 	
 	public static void main(String[] args) {
 		new Main();
@@ -32,7 +33,7 @@ public class Main {
 
 	private void buildPoints() {
 		System.out.println(">> Teil 1 Points <<");
-		Point poi = new Point("p1", 0, 0);
+		Point poi = new Point("p1", 30, 30);
 		Point p2 = new Point("p2", 4, 1);
 		
 		p2.setX(6);
@@ -87,9 +88,12 @@ public class Main {
 	}
 	
 	protected void buildGUI() {
-		window = new U4Window(model);
-		window.build();
-		
+		window = new GeometryWindow(model);	
+	}
+	
+	@Override
+	public void paint(Graphics graphics) {
+		window.loop(graphics);
 	}
 
 }

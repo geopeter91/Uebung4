@@ -9,8 +9,7 @@ public class Rectangle extends Geometry{
 	 * 
 	 */
 	public Rectangle(String name, Point p1, Point p3) {
-		super(name);
-		
+		super(name);		
 		constructMe(p1, p3);
 	}
 	

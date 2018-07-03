@@ -5,7 +5,7 @@ import main.geometry.Rectangle;
 import main.geometry.Square;
 import main.geometry.Tetragon;
 
-public class U4Model {
+public class GeometryModel {
 
 	private Point poi;
 	private Rectangle rectangle; 
